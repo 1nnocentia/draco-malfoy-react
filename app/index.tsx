@@ -21,15 +21,21 @@ const index = () => {
             <Text style={styles.buttonText}>Press Me</Text>
           </TouchableOpacity>
         </View>
-        <View>
+        <View style={styles.imageContainer}>
           <FlatList
             data={IMAGE_GRID}
             numColumns={3}
+            scrollEnabled={false}
             renderItem={({item}) => (
               <Image source={item.src} style={[styles.gridImage]}/> 
             )}
             keyExtractor={item => item.id.toString()}
             />
+        </View>
+        <View style={[styles.buttonContainer, styles.bottomButton]}>
+          <TouchableOpacity style={[styles.button]} onPress={() => alert('3')}>
+          <Text style={styles.buttonText}>Press Me</Text>
+          </TouchableOpacity>
         </View>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -41,10 +47,13 @@ export default index
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
+    // padding: 10,
     gap: 20,
     flexDirection: 'column',
     backgroundColor: '#1F3F30',
+  },
+  imageContainer: {
+    padding : 10,
   },
   gridImage: {
     flex: 1,
@@ -86,5 +95,10 @@ const styles = StyleSheet.create({
   titleText:{
     color: 'white',
     fontFamily: 'Rubik'
+  },
+  bottomButton: {
+    position: 'absolute',
+    bottom: 30,
+    flex: 1,
   }
 })
