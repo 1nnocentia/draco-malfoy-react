@@ -1,0 +1,90 @@
+import { StyleSheet, Text, View , FlatList, Image, TouchableOpacity} from 'react-native'
+import React from 'react'
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
+import { IMAGE_GRID, PROFILEIMG } from '../constant/constant'
+import { useFonts } from 'expo-font'
+
+const index = () => {
+
+  return (
+    <SafeAreaProvider >
+      <SafeAreaView style={styles.container}>
+        <View style={styles.headerSection}>
+          <Image source={PROFILEIMG} style={styles.profilePicture} />
+          <Text style={styles.titleText}>Draco Malfoy</Text>
+        </View>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button} onPress={() => alert('1')}>
+          <Text style={styles.buttonText}>Press Me</Text>
+          </TouchableOpacity>
+            <TouchableOpacity style={[styles.button, styles.rightButton]} onPress={() => alert('2')}>
+            <Text style={styles.buttonText}>Press Me</Text>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <FlatList
+            data={IMAGE_GRID}
+            numColumns={3}
+            renderItem={({item}) => (
+              <Image source={item.src} style={[styles.gridImage]}/> 
+            )}
+            keyExtractor={item => item.id.toString()}
+            />
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
+  )
+}
+
+export default index
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+    gap: 20,
+    flexDirection: 'column',
+    backgroundColor: '#1F3F30',
+  },
+  gridImage: {
+    flex: 1,
+    aspectRatio: 1,
+    marginVertical: 3,
+    marginHorizontal: 5,
+    borderRadius: 8,
+  },
+  buttonContainer: {
+    marginTop: 10,
+    marginBottom: 10,
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+  },
+  button: {
+    flex: 1,
+    backgroundColor: '#388364',
+    padding: 15,
+  },
+  rightButton: {
+    backgroundColor: '#68C8A2',
+  },
+  buttonText: {
+    color: 'white',
+    textAlign: 'center',
+  },
+  headerSection: {
+    marginTop: 10,
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: 30,
+  },
+  profilePicture: {
+    alignContent: 'center',
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+  },
+  titleText:{
+    color: 'white',
+    fontFamily: 'Rubik'
+  }
+})
