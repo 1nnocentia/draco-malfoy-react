@@ -2,10 +2,16 @@ import { StyleSheet, Text, View , FlatList, Image, TouchableOpacity} from 'react
 import React from 'react'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 import { IMAGE_GRID, PROFILEIMG } from '../constant/constant'
-import { useFonts } from 'expo-font'
+import { useFonts, AlmendraDisplay_400Regular } from '@expo-google-fonts/almendra-display'
 
 const index = () => {
+  let [fontsLoaded] = useFonts({
+    AlmendraDisplay_400Regular,
+  });
 
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
     <SafeAreaProvider >
       <SafeAreaView style={styles.container}>
@@ -64,8 +70,8 @@ const styles = StyleSheet.create({
   },
   titleText:{
     color: 'white',
-    fontFamily: 'Rubik',
-    fontSize: 20,
+    fontFamily: 'AlmendraDisplay_400Regular',
+    fontSize: 25,
   },
   imageContainer: {
     padding : 10,
