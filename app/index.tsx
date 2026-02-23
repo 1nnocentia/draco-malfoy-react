@@ -47,7 +47,6 @@ export default index
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // padding: 10,
     gap: 20,
     flexDirection: 'column',
     backgroundColor: '#1F3F30',
@@ -87,6 +86,7 @@ const styles = StyleSheet.create({
     gap: 30,
   },
   profilePicture: {
+    top: 10,
     alignContent: 'center',
     width: 100,
     height: 100,
