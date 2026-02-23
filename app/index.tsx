@@ -51,13 +51,29 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: '#1F3F30',
   },
+  headerSection: {
+    marginTop: 25,
+    alignItems: 'center',
+    gap: 15,
+  },
+  profilePicture: {
+    alignContent: 'center',
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+  },
+  titleText:{
+    color: 'white',
+    fontFamily: 'Rubik',
+    fontSize: 20,
+  },
   imageContainer: {
     padding : 10,
   },
   gridImage: {
     flex: 1,
     aspectRatio: 1,
-    marginVertical: 3,
+    marginVertical: 8,
     marginHorizontal: 5,
     borderRadius: 8,
   },
@@ -78,23 +94,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     textAlign: 'center',
-  },
-  headerSection: {
-    marginTop: 10,
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: 30,
-  },
-  profilePicture: {
-    top: 10,
-    alignContent: 'center',
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-  },
-  titleText:{
-    color: 'white',
-    fontFamily: 'Rubik'
   },
   bottomButton: {
     position: 'absolute',
